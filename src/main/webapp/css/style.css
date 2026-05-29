@@ -1,0 +1,152 @@
+/* ==========================================================================
+   野球特化型ECサイト ベースカラー
+   メイン（ネイビー）: #1a2a3a  /  サブ（芝生グリーン）: #2d7a4d
+   アクセント（熱血レッド）: #d9383a  /  背景（球場の明るさ）: #f0f4f8
+   ========================================================================== */
+
+/* 全体のリセットと背景 */
+body {
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Segoe UI', sans-serif;
+    background-color: #f0f4f8; /* 球場のデイゲームをイメージした爽やかな薄いグレーブルー */
+    color: #1a2a3a; /* 深いネイビー（文字色） */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* ヘッダー・ナビゲーション（球場のスコアボード風） */
+header {
+    background-color: #1a2a3a;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-bottom: 4px solid #2d7a4d; /* 芝生グリーンをアクセントに */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+    letter-spacing: 1px;
+}
+
+/* メインコンテンツの外枠（スタジアムのボックス席） */
+.container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+/* フォーム・カードデザイン */
+form, .menu-box {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border-top: 5px solid #1a2a3a; /* 上部にネイビーのライン */
+    box-shadow: 0 4px 12px rgba(26, 42, 58, 0.08);
+}
+
+h2 {
+    color: #1a2a3a;
+    border-left: 5px solid #2d7a4d; /* 芝生グリーンの縦線 */
+    padding-left: 10px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+/* 入力項目のレイアウト */
+p {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #334e68;
+}
+
+/* テキスト入力ボックス（シャープでスポーティな形状） */
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #cbd5e1;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+/* 入力欄にカーソルが当たった時（芝生グリーンに光る） */
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus {
+    border-color: #2d7a4d;
+    box-shadow: 0 0 8px rgba(45, 122, 77, 0.2);
+    outline: none;
+}
+
+/* 📥 ボタンのスタイル：ここが一番野球っぽい！ */
+
+/* 主戦力ボタン：ログイン・登録する（芝生グリーン） */
+input[type="submit"] {
+    background-color: #2d7a4d;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 3px 0 #1e5233; /* ボタンの立体感 */
+    transition: all 0.1s;
+    margin-right: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #25643f;
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #1e5233;
+}
+
+input[type="submit"]:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+/* 控えボタン：新規登録・キャンセル（ネイビー） */
+input[type="button"] {
+    background-color: #1a2a3a;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 3px 0 #0d151d;
+    transition: all 0.1s;
+}
+
+input[type="button"]:hover {
+    background-color: #111c26;
+    transform: translateY(1px);
+    box-shadow: 0 2px 0 #0d151d;
+}
+
+input[type="button"]:active {
+    transform: translateY(3px);
+    box-shadow: none;
+}
+
+/* フッター（スタジアムの最下部） */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    padding: 20px;
+    color: #627d98;
+    font-size: 12px;
+}

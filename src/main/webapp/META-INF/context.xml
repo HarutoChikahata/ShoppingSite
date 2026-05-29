@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource 
+        name="jdbc/ShoppingSite" 
+        auth="Container" 
+        type="javax.sql.DataSource" 
+        driverClassName="com.mysql.cj.jdbc.Driver" 
+        url="jdbc:mysql://localhost:3306/shoppingsite_chikahata?useSSL=false&amp;allowPublicKeyRetrieval=true" 
+        username="root" 
+        password="Fri8000498822" 
+        maxTotal="20" 
+        maxIdle="10" 
+        maxWaitMillis="-1" />
+</Context>
