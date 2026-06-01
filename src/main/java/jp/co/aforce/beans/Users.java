@@ -12,18 +12,20 @@ public class Users implements Serializable {
     private String firstName;
     private String address;
     private String mailAddress;
+    private String userRole;
     
     // コンストラクタ（引数なし）
     public Users() {}
 
     // コンストラクタ（全フィールド初期化用）
-    public Users(String memberId, String password, String lastName, String firstName, String address, String mailAddress) {
+    public Users(String memberId, String password, String lastName, String firstName, String address, String mailAddress, String userRole) {
         this.memberId = memberId;
         this.password = password;
-        this.lastName = lastName;
+        this.lastName = lastName; 
         this.firstName = firstName;
         this.address = address;
         this.mailAddress = mailAddress;
+        this.userRole = userRole;
     }
     
     //ゲッターとセッター
@@ -45,6 +47,9 @@ public class Users implements Serializable {
     public String getMailAdress() {
     	return mailAddress;
     }
+    public String getUserRole() {
+    	return userRole;
+    }
     
     public void setMemberId(String memberId) {
     	this.memberId = memberId;
@@ -63,6 +68,9 @@ public class Users implements Serializable {
     }
     public void setMailAddress(String mailAddress) {
     	this.mailAddress = mailAddress;
+    }
+    public void setUserRole(String userRole) {
+    	this.userRole = userRole;
     }
 }
 

@@ -1,10 +1,4 @@
-/* ==========================================================================
-   野球特化型ECサイト ベースカラー
-   メイン（ネイビー）: #1a2a3a  /  サブ（芝生グリーン）: #2d7a4d
-   アクセント（熱血レッド）: #d9383a  /  背景（球場の明るさ）: #f0f4f8
-   ========================================================================== */
-
-/* 全体のリセットと背景 */
+@charset "UTF-8";
 body {
     font-family: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN', 'Segoe UI', sans-serif;
     background-color: #f0f4f8; /* 球場のデイゲームをイメージした爽やかな薄いグレーブルー */
@@ -14,7 +8,6 @@ body {
     line-height: 1.6;
 }
 
-/* ヘッダー・ナビゲーション（球場のスコアボード風） */
 header {
     background-color: #1a2a3a;
     color: #ffffff;
@@ -29,7 +22,7 @@ header h1 {
     letter-spacing: 1px;
 }
 
-/* メインコンテンツの外枠（スタジアムのボックス席） */
+/* メインコンテンツの外枠*/
 .container {
     max-width: 600px;
     margin: 40px auto;
@@ -67,7 +60,7 @@ label {
     color: #334e68;
 }
 
-/* テキスト入力ボックス（シャープでスポーティな形状） */
+/* テキスト入力ボックス*/
 input[type="text"],
 input[type="password"],
 input[type="email"] {
@@ -80,7 +73,7 @@ input[type="email"] {
     transition: all 0.3s;
 }
 
-/* 入力欄にカーソルが当たった時（芝生グリーンに光る） */
+/* 入力欄にカーソルが当たった時*/
 input[type="text"]:focus,
 input[type="password"]:focus,
 input[type="email"]:focus {
@@ -89,9 +82,9 @@ input[type="email"]:focus {
     outline: none;
 }
 
-/* 📥 ボタンのスタイル：ここが一番野球っぽい！ */
 
-/* 主戦力ボタン：ログイン・登録する（芝生グリーン） */
+
+/*ログイン・登録する*/
 input[type="submit"] {
     background-color: #2d7a4d;
     color: white;
@@ -117,7 +110,7 @@ input[type="submit"]:active {
     box-shadow: none;
 }
 
-/* 控えボタン：新規登録・キャンセル（ネイビー） */
+/*新規登録・キャンセル（ネイビー） */
 input[type="button"] {
     background-color: #1a2a3a;
     color: white;
@@ -142,11 +135,412 @@ input[type="button"]:active {
     box-shadow: none;
 }
 
-/* フッター（スタジアムの最下部） */
 footer {
     text-align: center;
     margin-top: 60px;
     padding: 20px;
     color: #627d98;
     font-size: 12px;
+}
+
+/* ==========================================
+   🏟️ スタジアム風・タブ型メニュー (menu.jsp) 専用スタイル
+   ========================================== */
+
+/* メニュー全体のコンテナ（横並びのレイアウト） */
+.nav-tabs-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1a3c40; /* 芝生やスタジアムをイメージした深みのあるベースカラー */
+    padding: 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+}
+
+/* ユーザー名表示エリア */
+.nav-user-info {
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.nav-user-info strong {
+    color: #f7cd46; /* 金星（ゴールド）をイメージした目立つカラー */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* タブのリスト（ul） */
+.nav-tabs {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px; /* タブとタブの間のスキマ */
+}
+
+/* 各タブのリンク（aタグ）の基本設計 */
+.tab-item {
+    display: inline-block;
+    text-decoration: none;
+    color: #eef2f3;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.2s ease-in-out;
+    border: 1px solid transparent;
+}
+
+/* タブにマウスを乗せたとき（ホバー）の気持ちいい演出 */
+.tab-item:hover {
+    background-color: #225757;
+    color: #ffffff;
+    border-color: #f7cd46; /* ホバーでゴールドの枠線が浮き出る */
+    transform: translateY(-2px); /* 軽く浮き上がらせる */
+}
+
+/* 🚪 ログアウトタブだけは危険色（赤系）にしてアクセントをつける */
+.logout-tab {
+    color: #ff8a8a;
+}
+
+.logout-tab:hover {
+    background-color: #931a1a;
+    color: #ffffff;
+    border-color: #ff8a8a;
+}
+
+/* ==========================================
+   ページ全体のコンテンツ・ボタン共通スタイル
+   ========================================== */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* 各種デザインボタン */
+.btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary { background-color: #007bff; color: white; }
+.btn-primary:hover { background-color: #0056b3; }
+
+.btn-secondary { background-color: #28a745; color: white; }
+.btn-secondary:hover { background-color: #218838; }
+
+/* アカウント管理用ボタン */
+.welcome-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-left: 5px solid #1a3c40;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
+
+.management-buttons p {
+    margin-bottom: 15px;
+}
+
+.btn-edit { background-color: #17a2b8; color: white; width: 200px; }
+.btn-edit:hover { background-color: #138496; }
+
+.btn-delete { background-color: #6c757d; color: white; width: 200px; }
+.btn-delete:hover { background-color: #5a6268; }
+
+/* ==========================================
+   📦 ECサイト看板ホーム画面専用スタイル
+   ========================================== */
+
+/* 全体レイアウト：サイドバーとメインエリアを横並びにする */
+.main-layout {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* 左側サイドバーの設定 */
+.sidebar {
+    flex: 1;
+    max-width: 240px;
+}
+
+.sidebar-box {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #dee2e6;
+}
+
+.sidebar-box h3 {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #1a3c40;
+    border-bottom: 2px solid #1a3c40;
+    padding-bottom: 5px;
+}
+
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 12px;
+}
+
+.sidebar-menu a {
+    text-decoration: none;
+    color: #495057;
+    font-size: 14px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.sidebar-menu a:hover {
+    color: #1a3c40;
+}
+
+/* 右側メインエリアの設定 */
+.content-area {
+    flex: 3;
+}
+
+.section-title-box {
+    margin-bottom: 25px;
+}
+
+.section-title-box h2 {
+    margin: 0 0 5px 0;
+    color: #222;
+    font-size: 24px;
+}
+
+.section-subtitle {
+    margin: 0;
+    color: #6c757d;
+    font-size: 14px;
+}
+
+/* 商品をグリッド状に並べる（3列表示、レスポンシブ対応） */
+.item-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* 各商品カードのデザイン */
+.item-card {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.item-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+/* 商品画像が入る場所（一旦絵文字が中央に出る仮のデザイン） */
+.item-image-placeholder {
+    height: 160px;
+    background-color: #f1f3f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 48px;
+    color: #adb5bd;
+}
+
+/* 商品情報テキストエリア */
+.item-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.item-name {
+    margin: 0 0 10px 0;
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+    line-height: 1.4;
+    height: 42px; /* 2行分で高さを固定 */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+	line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.item-price {
+    margin: 0 0 15px 0;
+    font-size: 18px;
+    color: #d9534f; /* 野球の熱い情熱、かつ際立つレッド */
+    font-weight: bold;
+}
+
+/* 詳細を見るボタン */
+.btn-view-detail {
+    text-align: center;
+    display: block;
+    background-color: #1a3c40;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: auto; /* カードの最下部に固定 */
+    transition: background-color 0.2s;
+}
+
+.btn-view-detail:hover {
+    background-color: #225757;
+}
+
+/* ==========================================
+   📝 フォーム共通 ＆ 検索ページ専用スタイル
+   ========================================== */
+
+.search-page-container {
+    max-width: 700px; /* フォームが見やすいように少し横幅を絞る */
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+/* フォームの各入力行のカタマリ */
+.standard-form .form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.standard-form label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+/* 入力欄（テキスト、セレクトボックス、数値入力共通） */
+.standard-form .form-control {
+    padding: 10px 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 入力欄をクリックした（フォーカスした）時のスタジアムホバー演出 */
+.standard-form .form-control:focus {
+    border-color: #1a3c40;
+    box-shadow: 0 0 5px rgba(26, 60, 64, 0.2);
+}
+
+/* 価格帯の横並びレイアウト */
+.price-inputs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.price-input {
+    flex: 1;
+}
+
+.range-separator, .currency-unit {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: bold;
+}
+
+/* 検索フォームのボタンレイアウト */
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+/* 検索するボタン */
+.btn-search {
+    background-color: #1a3c40; /* スタジアムのメインカラー */
+    color: #ffffff;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 2;
+    transition: background-color 0.2s;
+}
+
+.btn-search:hover {
+    background-color: #225757;
+}
+
+/* リセットボタン */
+.btn-reset {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 12px 20px;
+    font-size: 15px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+
+.btn-reset:hover {
+    background-color: #dee2e6;
+}
+
+/* ==========================================
+   📸 商品画像自動フィット・スタイル
+   ========================================== */
+
+/* 1. 画像を入れる外枠（コンテナ）のサイズを完全に固定する */
+.item-image-box {
+    width: 100%;
+    height: 180px;         /* 👈 ここで商品画像の表示高さをカチッと統一します */
+    background-color: #f8f9fa; /* 画像の背景（余白）を薄いグレーにして綺麗に見せる */
+    display: flex;
+    justify-content: center;
+    align-items: center;   /* 画像を枠内の真ん中に配置する */
+    overflow: hidden;      /* 万が一はみ出してもカットする */
+}
+
+/* 2. 中にある画像自体の振る舞いをコントロールする */
+.item-img {
+    width: 100%;
+    height: 100%;
+    
+    /* 💡 魔法のプロパティ：縦横比を絶対に崩さず、枠内に綺麗に収める */
+    object-fit: contain; 
 }

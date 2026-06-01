@@ -9,12 +9,14 @@
 <title>ログアウト</title>
 </head>
 <body>
+	<%@include file="menu.jsp" %>
+	
 	<div class="container">
 		<p>ログアウトしますか？</p>
 		<input type="button" value="ログアウト"
 			onclick="location.href='${pageContext.request.contextPath}/jp/co/aforce/servlet/Logout.action'">
 		<input type="button" value="キャンセル"
-			onclick="location.href='user-menu.jsp'">
+			onclick="location.href='home.jsp'">
 	</div>
 	
 <%@include file="footer.html"%>

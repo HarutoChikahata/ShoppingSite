@@ -17,6 +17,8 @@
 <title>会員情報更新</title>
 </head>
 <body>
+	<%@include file="menu.jsp" %>
+
 	<div class="container">
 		<p>会員情報の更新ができます。</p>
 		<input type="button"

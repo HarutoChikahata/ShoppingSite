@@ -15,29 +15,33 @@
 
 <head>
 <meta charset="UTF-8">
-<title>会員メニュー</title>
+<title>野球道具専門サイト - 会員メニュー</title>
 </head>
 
 <body>
 
-	<div class="container">
-		<h2>会員情報登録ホーム</h2>
+    <%@include file="menu.jsp" %>
 
-		<p>ようこそ、${users.lastName}さん！</p>
+    <div class="container dashboard-container">
+        <div class="welcome-box">
+            <h2>会員情報登録ホーム</h2>
+            <p class="welcome-message">ようこそ、<strong>${users.lastName} </strong> さん！</p>
+            <p class="status-badge">現在のステータス: ログイン中 (会員番号: ${users.memberId})</p>
+        </div>
 
-		<div class="menu-buttons">
-			<p>
-				<input type="button" value="修正"
-					onclick="location.href='${pageContext.request.contextPath}/views/user-update.jsp'">
-			</p>
-			<p>
-				<input type="button" value="削除"
-					onclick="location.href='user-delete.jsp'">
-			</p>
-			<p>
-				<input type="button" value="ログアウト"
-					onclick="location.href='${pageContext.request.contextPath}/views/logout-in.jsp'">
-			</p>
-		</div>
+        <div class="management-section">
+            <h3>アカウント管理</h3>
+            <div class="management-buttons">
+                <p>
+                    <input type="button" value="📝 会員情報の修正" class="btn btn-edit"
+                           onclick="location.href='${pageContext.request.contextPath}/views/user-update.jsp'">
+                </p>
+                <p>
+                    <input type="button" value="⚠️ アカウントの削除" class="btn btn-delete"
+                           onclick="location.href='${pageContext.request.contextPath}/views/user-delete.jsp'">
+                </p>
+            </div>
+        </div>
+    </div>
 
 		<%@include file="footer.html"%>

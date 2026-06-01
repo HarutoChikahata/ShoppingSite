@@ -1,18 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<% 
+	Object user=session.getAttribute("users");
+	
+	if(user==null){
+		response.sendRedirect("log-in.jsp");
+		return;
+	}
+%>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
+<link rel="icon" href="${pageContext.request.contextPath}/images/ball.png" type="image/png">
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
-<title>ログイン</title>
+<title>野球道具専門サイト - 出品する</title>
 </head>
 
 <body>
-
+	
 	<script src="${pageContext.request.contextPath}/js/script.js" defer></script>
+
+	<%@include file="menu.jsp" %>
 
 	<div class="container">
 		<form

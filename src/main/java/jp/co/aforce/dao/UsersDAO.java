@@ -28,6 +28,7 @@ public class UsersDAO extends DAO{
 			users.setPassword(rs.getString("PASSWORD"));
 			users.setLastName(rs.getString("LAST_NAME"));   
 		    users.setFirstName(rs.getString("FIRST_NAME"));
+		    users.setUserRole(rs.getString("user_role"));
 		}
 		
 		st.close();

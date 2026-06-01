@@ -7,7 +7,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>ログインエラー</title>
+<title>野球道具専門サイト - ログインエラー</title>
 </head>
 
 <body>

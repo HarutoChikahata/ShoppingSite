@@ -6,8 +6,9 @@
 <html>
 
 <head>
+<link rel="icon" href="${pageContext.request.contextPath}/images/ball.png" type="image/png">
 <meta charset="UTF-8">
-<title>ログイン</title>
+<title>野球道具専門サイト - ログイン</title>
 </head>
 
 <body>
