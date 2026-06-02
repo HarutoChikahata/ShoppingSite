@@ -7,19 +7,32 @@
 
 <head>
 <meta charset="UTF-8">
-<title>会員登録</title>
+<title>会員登録 - 野球道具専門サイト</title>
 </head>
 
 <body>
 
-
-
 	<div class="container">
 		<h2>新規会員登録</h2>
 
+		<%
+		String errorMsg = (String) request.getAttribute("errorMsg");
+		if (errorMsg != null) {
+		%>
+		<div class="error-message-box"
+			style="color: #d9534f; background-color: #fdf7f7; border: 1px solid #d9534f; padding: 10px; border-radius: 4px; margin-bottom: 20px; font-weight: bold;">
+			<%=errorMsg%>
+		</div>
+		<%
+		}
+		%>
+
 		<form
-			action="${pageContext.request.contextPath}/jp/co/afforce/servlet/Register.action"
+			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/Register.action"
 			method="post">
+
+			<input type="hidden" name="mode" value="insert"> <input
+				type="hidden" name="action_type" value="check">
 
 			<%-- 1. 会員番号（MEMBER_ID：10文字） --%>
 			<p>
@@ -31,7 +44,7 @@
 			<p>
 				<label for="mailAddress">メールアドレス：</label> <input type="email"
 					id="mailAddress" name="mailAddress" maxlength="128" size="30"
-					placeholder="例: example@afforce.co.jp" required>
+					placeholder="例: example@aforce.co.jp" required>
 			</p>
 
 			<%-- 3. パスワード（PASSWORD：32文字） --%>
@@ -56,9 +69,8 @@
 					placeholder="例: 東京都千代田区..." required>
 			</p>
 
-
 			<p>
-				<input type="submit" value="登録する"> <input type="button"
+				<input type="submit" value="確認画面へ進む"> <input type="button"
 					value="キャンセル" onclick="location.href='log-in.jsp'">
 			</p>
 
@@ -66,4 +78,4 @@
 
 	</div>
 
-<%@include file="footer.html"%>
+	<%@include file="footer.html"%>

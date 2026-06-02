@@ -24,7 +24,7 @@
                        onclick="location.href='${pageContext.request.contextPath}/views/log-in.jsp'">
                        
                 <input type="button" value="新規会員登録画面へ" class="btn btn-secondary"
-                       onclick="location.href='${pageContext.request.contextPath}/views/register-in.jsp'">
+                       onclick="location.href='${pageContext.request.contextPath}/views/user-register.jsp'">
             </div>
         </div>
     </div>

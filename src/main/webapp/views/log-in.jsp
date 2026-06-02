@@ -35,7 +35,7 @@
 			<p>
 				<input type="submit" value="ログイン"> 
 				<input type="button"
-					value="新規会員登録" onclick="location.href='register-in.jsp'">
+					value="新規会員登録" onclick="location.href='user-register.jsp'">
 			</p>
 
 		</form>
