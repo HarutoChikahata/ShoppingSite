@@ -1,41 +1,39 @@
 package jp.co.aforce.servlet;
 
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import jakarta.servlet.http.HttpSession;
 
-/**
- * Servlet implementation class UserDeleteAction
- */
-@WebServlet("/UserDeleteAction")
-public class UserDeleteAction extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public UserDeleteAction() {
-        super();
-        // TODO Auto-generated constructor stub
+import jp.co.aforce.beans.Users;
+import jp.co.aforce.dao.UsersDAO;
+import jp.co.aforce.tool.Action;
+
+public class UserDeleteAction extends Action {
+    public String execute(
+    	HttpServletRequest request, HttpServletResponse respons
+    ) throws Exception {
+        
+        String actionType = request.getParameter("action_type");
+        UsersDAO dao = new UsersDAO();
+        HttpSession session = request.getSession();
+        
+        // ログインチェック
+        Users loginUser = (Users) session.getAttribute("users");
+        if (loginUser == null) return "/views/log-in.jsp";
+
+        // 削除確認画面へ進む前
+        if ("check".equals(actionType)) {
+            return "/views/user-delete-confirm.jsp";
+            
+        // 本当に削除する時
+        } else if ("commit".equals(actionType)) {
+            dao.delete(loginUser.getMemberId()); 
+            
+            // セッションを壊してログアウト
+            session.invalidate();
+            return "/views/user-delete-success.jsp";
+        }
+
+        return "/views/home.jsp";
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
-	}
-
 }

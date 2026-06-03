@@ -44,7 +44,7 @@ public class Users implements Serializable {
     public String getAddress() {
     	return address;
     }
-    public String getMailAdress() {
+    public String getMailAddress() {
     	return mailAddress;
     }
     public String getUserRole() {

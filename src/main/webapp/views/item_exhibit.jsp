@@ -1,28 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<% 
-	Object user=session.getAttribute("users");
-	
-	if(user==null){
-		response.sendRedirect("log-in.jsp");
-		return;
-	}
+<%
+Object user = session.getAttribute("users");
+
+if (user == null) {
+	response.sendRedirect("log-in.jsp");
+	return;
+}
 %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
-<link rel="icon" href="${pageContext.request.contextPath}/images/ball.png" type="image/png">
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>野球道具専門サイト - 出品する</title>
+<title>出品する</title>
 </head>
-
 <body>
-	
 	<script src="${pageContext.request.contextPath}/js/script.js" defer></script>
-
-	<%@include file="menu.jsp" %>
+	<%@include file="menu.jsp"%>
 
 	<div class="container">
 		<form
@@ -101,8 +98,8 @@
 			</p>
 
 			<p style="text-align: center; margin-top: 30px;">
-				<input type="submit" value="🥎 出品する"> <input
-					type="button" value="キャンセル" onclick="location.href='user-menu.jsp'">
+				<input type="submit" value="🥎 出品する"> <input type="button"
+					value="キャンセル" onclick="location.href='user-menu.jsp'">
 			</p>
 		</form>
 	</div>

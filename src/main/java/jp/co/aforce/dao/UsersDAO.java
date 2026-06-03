@@ -26,6 +26,7 @@ public class UsersDAO extends DAO {
 			users = new Users();
 			users.setMemberId(rs.getString("MEMBER_ID"));
 			users.setMailAddress(rs.getString("MAIL_ADDRESS"));
+			users.setAddress(rs.getString("ADDRESS"));
 			users.setPassword(rs.getString("PASSWORD"));
 			users.setLastName(rs.getString("LAST_NAME"));   
 			users.setFirstName(rs.getString("FIRST_NAME"));
@@ -68,7 +69,7 @@ public class UsersDAO extends DAO {
 		PreparedStatement st = con.prepareStatement(
 			"insert into users (MEMBER_ID, MAIL_ADDRESS, PASSWORD, LAST_NAME, FIRST_NAME, ADDRESS, user_role) values (?, ?, ?, ?, ?, ?, 'user')");
 		st.setString(1, user.getMemberId());
-		st.setString(2, user.getMailAdress()); // 💡 Beansの綴り getMailAdress に合わせています
+		st.setString(2, user.getMailAddress()); 
 		st.setString(3, user.getPassword());
 		st.setString(4, user.getLastName());
 		st.setString(5, user.getFirstName());
@@ -88,7 +89,7 @@ public class UsersDAO extends DAO {
 		
 		PreparedStatement st = con.prepareStatement(
 			"update users set MAIL_ADDRESS = ?, PASSWORD = ?, LAST_NAME = ?, FIRST_NAME = ?, ADDRESS = ? where MEMBER_ID = ?");
-		st.setString(1, user.getMailAdress());
+		st.setString(1, user.getMailAddress());
 		st.setString(2, user.getPassword());
 		st.setString(3, user.getLastName());
 		st.setString(4, user.getFirstName());

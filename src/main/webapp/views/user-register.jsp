@@ -1,15 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="header.jsp"%>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
-<title>会員登録 - 野球道具専門サイト</title>
+<title>会員登録</title>
 </head>
-
 <body>
 
 	<div class="container">
@@ -27,12 +26,11 @@
 		}
 		%>
 
-		<form
-			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/Register.action"
+		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserRegister.action"
 			method="post">
 
-			<input type="hidden" name="mode" value="insert"> <input
-				type="hidden" name="action_type" value="check">
+			<input type="hidden" name="mode" value="insert"> 
+			<input type="hidden" name="action_type" value="check">
 
 			<%-- 1. 会員番号（MEMBER_ID：10文字） --%>
 			<p>

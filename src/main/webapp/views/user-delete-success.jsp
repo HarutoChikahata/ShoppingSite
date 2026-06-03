@@ -7,15 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>会員登録完了</title>
+<title>削除完了</title>
 </head>
 
 <body>
 	<div class="container text-center">
-		<p>会員登録が完了しました。</p>
+		<p>削除が完了しました。</p>
 		<p>
-			<input type="button" value="ログイン画面へ"
-				onclick="location.href='${pageContext.request.contextPath}/views/log-in.jsp'">
+			<input type="button" value="スタート画面に戻る"
+				onclick="location.href='${pageContext.request.contextPath}/views/start.jsp'">
 		</p>
 	</div>
 	<%@include file="footer.html"%>

@@ -17,12 +17,12 @@ public class UserRegisterAction extends Action {
     	UsersDAO dao = new UsersDAO();
     	
     	//確認画面に進む前
-    	if("check".equals("actionType")) {
+    	if("check".equals(actionType)) {
     		String memberId = request.getParameter("memberId");
     		
     		//ID重複チェック
-    		if(dao.checkIdExists("memberId")) {
-    			request.setAttribute("errorMSG", "その会員IDは既に使われています。");
+    		if(dao.checkIdExists(memberId)) {
+    			request.setAttribute("errorMsg", "その会員IDは既に使われています。");
     			return "/views/user-register.jsp";
     		}
     		
@@ -55,6 +55,6 @@ public class UserRegisterAction extends Action {
     		return "/views/user-register-success.jsp";		
     	}
     	
-    	return "/views/home.jsp";
+    	return "/views/log-in.jsp";
     }
 } 

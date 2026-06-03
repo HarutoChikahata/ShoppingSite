@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@include file="header.jsp"%>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 <!DOCTYPE html>
@@ -7,7 +8,7 @@
 
 <head>
 <meta charset="UTF-8">
-<title>野球道具専門サイト - ログインエラー</title>
+<title>ログインエラー</title>
 </head>
 
 <body>
