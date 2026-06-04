@@ -61,8 +61,7 @@ public class UsersDAO extends DAO {
 		return exists;
 	}
 
-	// 📋 2. 会員情報新規登録機能（SQL：Insert）
-	// ※ 権限は前回DBに仕込んだ通り、初期値として一般ユーザーの 'user' を確定で入れます
+	//会員登録機能（Insert）
 	public int insert(Users user) throws Exception {
 		Connection con = getConnection();
 		
@@ -79,11 +78,11 @@ public class UsersDAO extends DAO {
 		
 		st.close();
 		con.close();
-		return line; // 登録された行数（成功なら1）を返す
+		return line; 
 	}
 
-	// 📋 3. 会員情報編集機能（SQL：Update）
-	// ※ 主キー（MEMBER_ID）を条件にして、パスワード、名前、住所、メールを一括更新します
+	//会員編集機能（Update）
+	// 主キー（MEMBER_ID）を条件にして、パスワード、名前、住所、メールを一括更新します
 	public int update(Users user) throws Exception {
 		Connection con = getConnection();
 		
@@ -103,7 +102,7 @@ public class UsersDAO extends DAO {
 		return line;
 	}
 
-	// 📋 4. 会員情報削除機能（SQL：Delete）
+	//会員削除機能（Delete）
 	// ※ 主キー（MEMBER_ID）を指定して、DBから物理削除（退会処理）を行います
 	public int delete(String memberId) throws Exception {
 		Connection con = getConnection();

@@ -8,14 +8,16 @@ if (userCheck == null) {
 	return;
 }
 %>
+
 <%@include file="header.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>道具を探す</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 

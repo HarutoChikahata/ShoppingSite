@@ -9,31 +9,34 @@
         return;
     }
 %>
+
 <%@include file="header.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>会員情報編集</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 
 	<div class="container">
 		<h2>会員情報編集</h2>
 		<p>変更したい項目を入力し、「変更内容の確認へ」ボタンを押してください。</p>
-
+		
 		<form
 			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/UserUpdate.action"
-			method="post">
+			method="post"
+			onsubmit="return validatePassword()">
 
-			<input type="hidden" name="mode" value="update"> <input
-				type="hidden" name="action_type" value="check">
+			<input type="hidden" name="mode" value="update"> 
+			<input type="hidden" name="action_type" value="check">
 
-			<%-- 会員番号（MEMBER_ID：変更不可として表示するだけ） --%>
+			<%-- 会員ID（MEMBER_ID：変更不可として表示するだけ） --%>
 			<p>
-				<label>会員番号：</label> <strong><%= loginUser.getMemberId() %></strong>
+				<label>会員ID：</label> <strong><%= loginUser.getMemberId() %></strong>
 			</p>
 
 			<%-- 1. メールアドレス --%>
@@ -49,7 +52,11 @@
 					id="password" name="password" maxlength="32"
 					value="<%= loginUser.getPassword() %>" required>
 			</p>
-
+			<p>
+    			<label for="passwordConfirm">パスワード（確認）：</label> 
+   			 	<input type="password" id="passwordConfirm" name="passwordConfirm" maxlength="32" required>
+   			</p>
+   			
 			<%-- 3. 姓名 --%>
 			<p>
 				<label for="lastName">お名前（姓）：</label> <input type="text"
@@ -69,10 +76,21 @@
 
 			<p>
 				<input type="submit" value="変更内容の確認へ"> <input type="button"
-					value="キャンセル" onclick="location.href='user-menu.jsp'">
+					value="キャンセル" onclick="javascript:history.back();">
 			</p>
 
 		</form>
 	</div>
 
+<script>
+function validatePassword() {
+    const password = document.getElementById("password").value;
+    const confirm = document.getElementById("passwordConfirm").value;
+    if (password !== confirm) {
+        alert("❌ パスワードと確認用パスワードが一致しません。もう一度ご確認ください。");
+        return false;
+    }
+    return true;
+}
+</script>
 	<%@include file="footer.html"%>

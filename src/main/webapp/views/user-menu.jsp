@@ -8,14 +8,16 @@ if (user == null) {
 	return;
 }
 %>
+
 <%@include file="header.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>会員メニュー</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 
@@ -27,7 +29,7 @@ if (user == null) {
 			<p class="welcome-message">
 				ようこそ、<strong>${users.lastName} </strong> さん！
 			</p>
-			<p class="status-badge">現在のステータス: ログイン中 (会員番号: ${users.memberId})</p>
+			<p class="status-badge">現在のステータス: ログイン中 (会員ID: ${users.memberId})</p>
 		</div>
 
 		<div class="management-section">

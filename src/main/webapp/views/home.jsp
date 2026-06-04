@@ -9,14 +9,16 @@ if (userCheck == null) {
 	return;
 }
 %>
+
 <%@include file="header.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>ホーム</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 

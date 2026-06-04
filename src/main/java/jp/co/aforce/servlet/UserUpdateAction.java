@@ -23,6 +23,14 @@ public class UserUpdateAction extends Action {
     	
     	//編集確認画面へ進む前
     	if("check".equals(actionType)) {
+    		String password = request.getParameter("password");
+    	    String passwordConfirm = request.getParameter("passwordConfirm");
+    	    
+    	    if(password == null || !password.equals(passwordConfirm)) {
+    		    request.setAttribute("errorMsg", "入力されたパスワードが一致しません。");
+    		    return "/views/user-update.jsp";
+    		}
+    	    
     		Users updatedCandidate = new Users( 
     			loginUser.getMemberId(),
     			request.getParameter("password"),
@@ -32,6 +40,7 @@ public class UserUpdateAction extends Action {
     			request.getParameter("mailAddress"),
     			loginUser.getUserRole()
     		);
+    
     		request.setAttribute("candidateUser", updatedCandidate);
     		return "/views/user-update-confirm.jsp";
     	

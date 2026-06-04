@@ -9,14 +9,16 @@ if (loginUser == null) {
 	return;
 }
 %>
+
 <%@include file="header.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>退会内容確認</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 
@@ -24,7 +26,7 @@ if (loginUser == null) {
 		<h2>退会内容の最終確認</h2>
 
 		<p>
-			以下の会員アカウントを完全に削除します。<br> <span>この操作は取り消せません。</span>本当によろしいですか？
+			アカウントを完全に削除します。<br> <span>この操作は取り消せません。</span>本当によろしいですか？
 		</p>
 
 
@@ -37,7 +39,7 @@ if (loginUser == null) {
 
 			<div>
 				<input type="submit" value="承諾して、完全に退会する"> <input
-					type="button" value="戻る" onclick="location.href='user-delete.jsp'">
+					type="button" value="戻る" onclick="javascript:history.back()">
 			</div>
 		</form>
 	</div>

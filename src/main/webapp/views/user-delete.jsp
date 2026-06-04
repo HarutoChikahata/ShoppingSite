@@ -9,25 +9,27 @@ if (loginUser == null) {
 	return;
 }
 %>
+
 <%@include file="header.jsp"%>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>退会手続き</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
 
 	<div class="container text-center"
 		style="max-width: 500px; margin-top: 50px;">
 		<div class="warning-box">
-			<h2>⚠️ 退会手続き（アカウント削除）</h2>
+			<h2>退会手続き（アカウント削除）</h2>
 
 			<p>
 				現在ログイン中の会員アカウント（ID: <strong><%=loginUser.getMemberId()%></strong>）をシステムから完全に削除します。<br>
-				退会すると、これまでの出品履歴や登録情報がすべて失われ、元に戻すことはできません。
+				退会すると、元に戻すことはできません。
 			</p>
 
 			<hr>
