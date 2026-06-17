@@ -4,7 +4,7 @@
 // 💡 認証ガード：未ログインならログイン画面へ即送還
 jp.co.aforce.beans.Users userCheck = (jp.co.aforce.beans.Users) session.getAttribute("users");
 if (userCheck == null) {
-	response.sendRedirect("log-in.jsp");
+	response.sendRedirect("log_in.jsp");
 	return;
 }
 %>
@@ -27,21 +27,21 @@ if (userCheck == null) {
 
 		<div class="section-title-box">
 			<h2>🔍 野球道具を探す</h2>
-			<p class="section-subtitle">キーワードやカテゴリ、価格帯から欲しいギアを絞り込めます。</p>
+			<p class="section-subtitle">キーワードやカテゴリ、価格帯から欲しい道具を絞り込めます。</p>
 		</div>
 
 		<%-- 
           💡 検索処理を行うAction（例: ItemSearch.action）へデータを送信します。
           出品ページ（item_exhibit.jsp）のフォームと対になるように、クリーンな構造にしています。
         --%>
-		<form
-			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/ItemSearch.action"
-			method="post" class="standard-form">
+		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/ItemSearch.action"
+			method="get" class="standard-form">
 
 			<div class="form-group">
-				<label Kakushika="keyword">商品名・キーワード：</label> <input type="text"
-					id="keyword" name="keyword" placeholder="例: ミズノプロ、軟式バットなど"
-					class="form-control">
+				<label for="keyword">商品名・キーワード：</label> 
+				<input type="text"
+					   id="keyword" name="keyword" placeholder="例: ミズノプロ、軟式バットなど"
+					   class="form-control">
 			</div>
 
 			<div class="form-group">

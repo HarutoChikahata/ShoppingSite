@@ -7,18 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ログアウト</title>
+<title>ログアウトエラー</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-	<%@include file="menu.jsp"%>
-
 	<div class="container">
-		<p>ログアウトしますか？</p>
-		<input type="button" value="ログアウト"
-			onclick="location.href='${pageContext.request.contextPath}/jp/co/aforce/servlet/Logout.action'">
-		<input type="button" value="キャンセル" onclick="location.href='home.jsp'">
+		<p>すでにログアウトしています。</p>
+		<input type="button" value="ログイン画面に戻る"
+			onclick="location.href='${pageContext.request.contextPath}/views/log_in.jsp'">
 	</div>
 
 	<%@include file="footer.html"%>

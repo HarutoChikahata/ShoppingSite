@@ -23,10 +23,10 @@
 			<p>ログインするか、新規会員登録を行ってください。</p>
 			<div class="start-buttons">
 				<input type="button" value="ログイン画面へ" class="btn btn-primary"
-					onclick="location.href='${pageContext.request.contextPath}/views/log-in.jsp'">
+					onclick="location.href='${pageContext.request.contextPath}/views/log_in.jsp'">
 
 				<input type="button" value="新規会員登録画面へ" class="btn btn-secondary"
-					onclick="location.href='${pageContext.request.contextPath}/views/user-register.jsp'">
+					onclick="location.href='${pageContext.request.contextPath}/views/user_register.jsp'">
 			</div>
 		</div>
 	</div>

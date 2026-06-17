@@ -10,6 +10,7 @@
 <title>ログイン</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -21,20 +22,21 @@
 
 			<!--1.メールアドレスの入力欄-->
 			<p>
-				<label for="mailAddress">会員IDまたはメールアドレス：</label> <input type="text"
+				<label for="mailAddress">会員ID(半角英数字)またはメールアドレス</label> <input type="text"
 					name="mailAddress" required>
 			</p>
 
 			<!--2.パスワードの入力欄-->
 			<p>
-				<label for="password">パスワード：</label> <input type="password"
+				<label for="password">パスワード(6文字以上)</label> <input type="password"
 					name="password" required>
 			</p>
 
 			<!--3．ログインと新規会員登録ボタン-->
 			<p>
-				<input type="submit" value="ログイン"> <input type="button"
-					value="新規会員登録" onclick="location.href='user-register.jsp'">
+				<input type="submit" value="ログイン"> 
+				<input type="button"
+					value="新規会員登録" onclick="location.href='user_register.jsp'">
 			</p>
 
 		</form>

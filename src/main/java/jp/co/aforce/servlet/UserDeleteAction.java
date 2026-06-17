@@ -19,11 +19,11 @@ public class UserDeleteAction extends Action {
         
         // ログインチェック
         Users loginUser = (Users) session.getAttribute("users");
-        if (loginUser == null) return "/views/log-in.jsp";
+        if (loginUser == null) return "/views/log_in.jsp";
 
         // 削除確認画面へ進む前
         if ("check".equals(actionType)) {
-            return "/views/user-delete-confirm.jsp";
+            return "/views/user_delete_confirm.jsp";
             
         // 本当に削除する時
         } else if ("commit".equals(actionType)) {
@@ -31,7 +31,7 @@ public class UserDeleteAction extends Action {
             
             // セッションを壊してログアウト
             session.invalidate();
-            return "/views/user-delete-success.jsp";
+            return "/views/user_delete_success.jsp";
         }
 
         return "/views/home.jsp";

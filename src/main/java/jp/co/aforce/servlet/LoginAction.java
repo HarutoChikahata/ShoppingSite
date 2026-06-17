@@ -59,9 +59,9 @@ public class LoginAction extends Action {
             // ---------------------------------------------------------
             
 			session.setAttribute("users", users);
-			return "/views/user-menu.jsp";
+			return "/jp/co/aforce/servlet/Home.action";
 		}
 		
-		return "/views/login-error.jsp";
+		return "/views/login_error.jsp";
 	}
 }

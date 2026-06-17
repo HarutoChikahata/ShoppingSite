@@ -5,7 +5,7 @@
 // セッションからログインユーザー情報を取得
 jp.co.aforce.beans.Users loginUser = (jp.co.aforce.beans.Users) session.getAttribute("users");
 if (loginUser == null) {
-	response.sendRedirect("log-in.jsp");
+	response.sendRedirect("log_in.jsp");
 	return;
 }
 %>
@@ -39,7 +39,7 @@ if (loginUser == null) {
 
 			<div>
 				<input type="submit" value="承諾して、完全に退会する"> <input
-					type="button" value="戻る" onclick="javascript:history.back()">
+					type="button" value="戻る" onclick="history.back()">
 			</div>
 		</form>
 	</div>

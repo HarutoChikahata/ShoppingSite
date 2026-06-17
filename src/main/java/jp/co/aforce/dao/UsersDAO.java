@@ -49,7 +49,7 @@ public class UsersDAO extends DAO {
 		ResultSet rs = st.executeQuery();
 		
 		if (rs.next()) {
-			// カウントが0より大きければ「すでに存在する（true）」
+			// カウントが0より大きければ、存在する（true）
 			if (rs.getInt(1) > 0) {
 				exists = true;
 			}
@@ -82,7 +82,7 @@ public class UsersDAO extends DAO {
 	}
 
 	//会員編集機能（Update）
-	// 主キー（MEMBER_ID）を条件にして、パスワード、名前、住所、メールを一括更新します
+	//主キー（MEMBER_ID）を条件にして、パスワード、名前、住所、メールを一括更新
 	public int update(Users user) throws Exception {
 		Connection con = getConnection();
 		
@@ -103,7 +103,7 @@ public class UsersDAO extends DAO {
 	}
 
 	//会員削除機能（Delete）
-	// ※ 主キー（MEMBER_ID）を指定して、DBから物理削除（退会処理）を行います
+	//主キー（MEMBER_ID）を指定して、DBから物理削除
 	public int delete(String memberId) throws Exception {
 		Connection con = getConnection();
 		

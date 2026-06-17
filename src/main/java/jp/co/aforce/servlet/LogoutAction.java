@@ -18,10 +18,10 @@ public class LogoutAction extends Action {
 		    
 		    session.invalidate();
 		    
-		    return "/views/logout-out.jsp";
+		    return "/views/logout_out.jsp";
 		}
 
-		return "/views/logout-error.jsp";
+		return "/views/logout_error.jsp";
 	}
 }
 

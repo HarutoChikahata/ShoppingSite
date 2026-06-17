@@ -40,7 +40,7 @@
 
 			<%-- 1. 会員ID（MEMBER_ID：10文字） --%>
 			<p>
-				<label for="memberId">会員ID：</label> 
+				<label for="memberId">会員ID(半角英数字)</label> 
 					<input type="text" 
 					   id="memberId"
 					   name="memberId" 
@@ -52,7 +52,7 @@
 
 			<%-- 2. メールアドレス（MAIL_ADDRESS：128文字） --%>
 			<p>
-				<label for="mailAddress">メールアドレス：</label> 
+				<label for="mailAddress">メールアドレス</label> 
 					<input type="email"
 					   id="mailAddress" 
 				       name="mailAddress" 
@@ -65,7 +65,7 @@
 
 			<%-- 3. パスワード（PASSWORD：32文字） --%>
 			<p>
-				<label for="password">パスワード：</label> 
+				<label for="password">パスワード(6文字以上)</label> 
 					<input type="password"
 					   id="password" 
 					   name="password" 
@@ -75,7 +75,7 @@
 			</p>
 			<%-- 💡 追加：確認用パスワード入力欄 --%>
 			<p>
-				<label for="passwordConfirm">パスワード（確認）：</label> 
+				<label for="passwordConfirm">もう一度パスワードを入力してください</label> 
 					<input type="password" 
 				      	id="passwordConfirm" 
 				      	name="passwordConfirm"
@@ -83,7 +83,7 @@
 			</p>	
 			<%-- 4. 姓名（LAST_NAME/FIRST_NAME：32文字） --%>
 			<p>
-				<label for="lastName">お名前（姓）：</label> 
+				<label for="lastName">氏名（姓）</label> 
 					<input type="text"
 						id="lastName" 
 						name="lastName" 
@@ -92,7 +92,7 @@
 						value="<%= backup != null ? backup.getLastName() : "" %>"
 						required>
 						
-				<label for="firstName">（名）：</label> 
+				<label for="firstName">氏名（名）</label> 
 					<input type="text" 
 						id="firstName"
 						name="firstName"
@@ -104,7 +104,7 @@
 
 			<%-- 5. 住所（ADDRESS：128文字） --%>
 			<p>
-				<label for="address">住所：</label> 
+				<label for="address">住所</label> 
 					<input type="text" 
 						id="address"
 						name="address" maxlength="128" size="50"
@@ -123,18 +123,6 @@
 
 	</div>
 
-	<script>
-		function validatePassword() {
-			const password = document.getElementById("password").value;
-			const confirm = document.getElementById("passwordConfirm").value;
-
-			// 💡 入力された2つのパスワードが一致しているか判定
-			if (password !== confirm) {
-				alert("❌ パスワードと確認用パスワードが一致しません。もう一度ご確認ください。");
-				return false; //送信を強制ストップして画面を留める
-			}
-			return true; //一致していればそのままサーブレットへ
-		}
-	</script>
+<script src="${pageContext.request.contextPath}/js/validation.js"></script>
 
 	<%@include file="footer.html"%>

@@ -19,16 +19,37 @@ public class UserUpdateAction extends Action {
     	
     	//loginUserにセッションを持たせてログインチェック
     	Users loginUser = (Users) session.getAttribute("users");
-    	if(loginUser == null) return "/views/log-in.jsp";
+    	if(loginUser == null) return "/views/log_in.jsp";
     	
     	//編集確認画面へ進む前
     	if("check".equals(actionType)) {
+    		String mailAddress = request.getParameter("mailAddress");
+    		String currentPassword = request.getParameter("currentPassword");    		
     		String password = request.getParameter("password");
     	    String passwordConfirm = request.getParameter("passwordConfirm");
     	    
+    	    //メールアドレス半角英数チェック
+    	    if(mailAddress == null 
+    	    	|| !mailAddress.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$")
+    	    	|| mailAddress.contains("xn--")) {
+    	    	request.setAttribute("errorMsg", "メールアドレスの形式が正しくありません。すべて半角英数字・記号で入力してください。");
+    	    	return "/views/user_update.jsp";
+    	    }
+    	    
+    	    //6文字以上かつ半角文字チェック
+            if(password == null || !password.matches("^[a-zA-Z0-9!-/:-@\\[-`\\{-~]{6,}$")) {
+            	request.setAttribute("errorMsg", "パスワードは6文字以上の半角文字で入力してください。");
+            	return "/views/user_update.jsp";
+            }
+            
+    	    if(currentPassword == null || !currentPassword.equals(loginUser.getPassword())) {
+    	    	request.setAttribute("errorMsg", "現在のパスワードが間違っています。");
+    	    	return "/views/user_update.jsp";
+    	    			
+    	    }
     	    if(password == null || !password.equals(passwordConfirm)) {
     		    request.setAttribute("errorMsg", "入力されたパスワードが一致しません。");
-    		    return "/views/user-update.jsp";
+    		    return "/views/user_update.jsp";
     		}
     	    
     		Users updatedCandidate = new Users( 
@@ -42,7 +63,7 @@ public class UserUpdateAction extends Action {
     		);
     
     		request.setAttribute("candidateUser", updatedCandidate);
-    		return "/views/user-update-confirm.jsp";
+    		return "/views/user_update_confirm.jsp";
     	
     	//編集確定時
     	} else if("commit".equals(actionType)) {
@@ -59,7 +80,7 @@ public class UserUpdateAction extends Action {
     		
     		//セッションも上書き
     		session.setAttribute("users", updateUser);
-    		return "/views/user-update-success.jsp";
+    		return "/views/user_update_success.jsp";
     	}
     	
     	return "/views/home.jsp";

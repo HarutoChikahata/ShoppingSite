@@ -50,7 +50,7 @@
 				value="${candidateUser.mailAddress}">
 
 			<input type="submit" value="この内容で登録する">
-			<input type="button" value="戻る" onclick="javascript:history.back();">
+			<input type="button" value="戻る" onclick="history.back();">
 		</form>
 	</div>
 	<%@include file="footer.html"%>

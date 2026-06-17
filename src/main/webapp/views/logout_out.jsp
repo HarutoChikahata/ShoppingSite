@@ -7,19 +7,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ログインエラー</title>
+<title>ログアウト完了</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 </head>
-
 <body>
-
 	<div class="container">
-		<p>
-			会員ID、メールアドレスまたはパスワードが違います。<br> <input type="button"
-				value="ログイン画面に戻る"
-				onclick="javascript:history.back();">
-		</p>
+		<p>ログアウトしました。</p>
+		<input type="button" value="ログイン画面に戻る"
+			onclick="location.href='${pageContext.request.contextPath}/views/log_in.jsp'">
 	</div>
 
 	<%@include file="footer.html"%>

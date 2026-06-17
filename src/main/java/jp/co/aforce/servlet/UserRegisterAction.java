@@ -34,24 +34,38 @@ public class UserRegisterAction extends Action {
     			 "user"
         );
     		
+             //サーバー側でも会員IDの二重チェック
+             if(memberId == null || !memberId.matches("^[a-zA-Z0-9]+$")) {
+            	 request.setAttribute("errorMsg", "会員IDは半角英数字のみで入力してください。");
+            	 request.setAttribute("backInput", candidate); //入力内容をキープ
+            	 return "/views/user_register.jsp";
+             }
+             
+             //6文字以上かつ半角文字チェック
+             if(password == null || !password.matches("^[a-zA-Z0-9!-/:-@\\[-`\\{-~]{6,}$")) {
+            	 request.setAttribute("errorMsg", "パスワードは6文字以上の半角文字で入力してください。");
+            	 request.setAttribute("backInput", candidate); //入力内容をキープ
+            	 return "/views/user_register.jsp";
+             }
+             
     		 //ID重複チェック
     		 if(dao.checkIdExists(memberId)) {
     			 request.setAttribute("errorMsg", "その会員IDは既に使われています。");
     			 
     			 request.setAttribute("backupInput", candidate);
-    			 return "/views/user-register.jsp"; //入力画面へ
+    			 return "/views/user_register.jsp"; //入力画面へ
     		 }
     		
     		 //パスワードチェック
     		 if(password == null || !password.equals(passwordConfirm)) {
     			 request.setAttribute("errorMsg", "入力されたパスワードが一致しません。");
     		     request.setAttribute("backupInput", candidate);
-    		     return "/views/user-register.jsp"; //入力画面へ
+    		     return "/views/user_register.jsp"; //入力画面へ
     		 }
     		
     		 // データをBeanに詰めてセット→確認画面へ
     		 request.setAttribute("candidateUser", candidate);
-    		 return "/views/user-register-confirm.jsp";
+    		 return "/views/user_register_confirm.jsp";
     		
     	 //confirmから確定された時
     	 } else if("commit".equals(actionType)){
@@ -70,9 +84,9 @@ public class UserRegisterAction extends Action {
     		 HttpSession session = request.getSession(true);
     		 session.setAttribute("users", newUser);
     		 
-    		 return "/views/user-register-success.jsp";		
+    		 return "/views/user_register_success.jsp";		
     	 }
     	
-    	 return "/views/log-in.jsp";
+    	 return "/views/log_in.jsp";
     }
 } 

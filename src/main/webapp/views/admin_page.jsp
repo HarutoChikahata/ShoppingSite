@@ -6,7 +6,7 @@ jp.co.aforce.beans.Users userCheck = (jp.co.aforce.beans.Users) session.getAttri
 
 // ログインしていても権限がadminじゃなければログイン画面へ
 if (userCheck == null || !"admin".equals(userCheck.getUserRole())) {
-	response.sendRedirect("log-in.jsp");
+	response.sendRedirect("log_in.jsp");
 	return;
 }
 %>

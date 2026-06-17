@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-Object user = session.getAttribute("users");
-
-if (user == null) {
-	response.sendRedirect("log-in.jsp");
+// 未ログイン、または管理者(admin)じゃなければホームへ強制送還
+jp.co.aforce.beans.Users userCheck = (jp.co.aforce.beans.Users) session.getAttribute("users");
+if (userCheck == null || !"admin".equals(userCheck.getUserRole())) {
+	response.sendRedirect(request.getContextPath() + "/jp/co/aforce/servlet/Home.action");
 	return;
 }
 %>
@@ -16,94 +14,46 @@ if (user == null) {
 <html>
 <head>
 <meta charset="UTF-8">
-<title>出品する</title>
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/style.css">
+<title>商品出品 - 管理者専用</title>
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 </head>
 <body>
-	<script src="${pageContext.request.contextPath}/js/script.js" defer></script>
+
 	<%@include file="menu.jsp"%>
 
 	<div class="container">
-		<form
-			action="${pageContext.request.contextPath}/jp/co/aforce/servlet/Exhibit.action"
-			method="post">
-			<h2>出品する🥎</h2>
-
+		<form action="${pageContext.request.contextPath}/jp/co/aforce/servlet/ItemExhibit.action" method="post" 
+						enctype="multipart/form-data">
+			<h2>📢 新しい野球道具を出品する</h2>
+			
 			<p>
-				<label for="item_name">商品名</label> <input type="text" id="item_name"
-					name="item_name" placeholder="例：ミズノプロ 軟式内野手用グラブ" required>
+				<label for="itemName">⚾ 商品名</label>
+				<input type="text" id="itemName" name="itemName" placeholder="例：硬式用 内野手グローブ" required>
 			</p>
-
+			
 			<p>
-				<label for="category">カテゴリ</label> <select id="category"
-					name="category" required
-					style="width: 100%; padding: 10px; font-size: 16px;">
-					<option value="">選択してください</option>
-					<option value="グラブ">グラブ</option>
-					<option value="ミット">ミット</option>
-					<option value="バット">バット</option>
-					<option value="スパイク">スパイク/トレシュ</option>
-					<option value="ウェア">ウェア/ユニフォーム</option>
-				</select>
+				<label for="description">📋 商品の説明</label>
+				<input type="text" id="description" name="description" placeholder="例：ミズノプロの硬式用グローブです。" required>
 			</p>
-
-			<p id="position-area" style="display: none;">
-				<label for="position">ポジション</label> <select id="position"
-					name="position"
-					style="width: 100%; padding: 10px; font-size: 16px;">
-					<option value="指定なし">指定なし（オールラウンドなど）</option>
-					<option value="投手用">投手用</option>
-					<option value="内野手用">内野手用</option>
-					<option value="外野手用">外野手用</option>
-					<option value="捕手用">捕手用</option>
-					<option value="ファーストミット">ファーストミット</option>
-				</select>
-			</p>
-
+			
 			<p>
-				<label>区分</label> <label
-					style="display: inline; margin-right: 15px;"><input
-					type="radio" name="baseball_type" value="硬式" checked> 硬式</label> <label
-					style="display: inline; margin-right: 15px;"><input
-					type="radio" name="baseball_type" value="軟式"> 軟式</label> <label
-					style="display: inline;"><input type="radio"
-					name="baseball_type" value="ソフトボール"> ソフトボール</label>
+				<label for="price">💰 価格 (円)</label>
+				<input type="text" id="price" name="price" placeholder="例：58500" required>
 			</p>
-
+			
 			<p>
-				<label for="maker">メーカー</label> <input type="text" id="maker"
-					name="maker" placeholder="例：ミズノ、ゼット、ローリングス" required>
+				<label for="imageUrl">🖼️ 商品画像アップロード</label>
+				<input type="file" id="imageUrl" name="imageUrl" required>
 			</p>
-
+			
 			<p>
-				<label for="item_condition">商品の状態</label> <select
-					id="item_condition" name="item_condition" required
-					style="width: 100%; padding: 10px; font-size: 16px;">
-					<option value="新品・未使用">新品・未使用（お店の型落ち在庫など）</option>
-					<option value="未使用に近い">未使用に近い</option>
-					<option value="目立った傷や汚れなし">目立った傷や汚れなし（実戦で即戦力）</option>
-					<option value="やや傷や汚れあり">やや傷や汚れあり（練習用に最適）</option>
-					<option value="全体的に状態が悪い">全体的に状態が悪い（ジャンク・型付けの練習用など）</option>
-				</select>
+				<label for="stockQuantity">📦 初期在庫数 (個)</label>
+				<input type="text" id="stockQuantity" name="stockQuantity" placeholder="例：5" required>
 			</p>
-
-			<p>
-				<label for="price">販売価格 (￥)</label> <input type="text" id="price"
-					name="price" placeholder="例：15000" required>
-			</p>
-
-			<p>
-				<label for="description">商品の詳細説明</label>
-				<textarea id="description" name="description" rows="5"
-					style="width: 100%; padding: 10px; font-size: 16px; border: 2px solid #cbd5e1; border-radius: 4px;"
-					placeholder="使用頻度、ポジション、型付けの具合（即戦力か硬めか）など"></textarea>
-			</p>
-
-			<p style="text-align: center; margin-top: 30px;">
-				<input type="submit" value="🥎 出品する"> <input type="button"
-					value="キャンセル" onclick="location.href='user-menu.jsp'">
-			</p>
+			
+			<div style="text-align: center; margin-top: 32px;">
+				<input type="submit" value="✨ この道具を出品する">
+			</div>
 		</form>
 	</div>
 

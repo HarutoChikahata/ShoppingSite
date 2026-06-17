@@ -4,7 +4,7 @@
 Object user = session.getAttribute("users");
 
 if (user == null) {
-	response.sendRedirect("log-in.jsp");
+	response.sendRedirect("log_in.jsp");
 	return;
 }
 %>
@@ -37,11 +37,11 @@ if (user == null) {
 			<div class="management-buttons">
 				<p>
 					<input type="button" value="会員情報の修正" class="btn btn-edit"
-						onclick="location.href='${pageContext.request.contextPath}/views/user-update.jsp'">
+						onclick="location.href='${pageContext.request.contextPath}/views/user_update.jsp'">
 				</p>
 				<p>
 					<input type="button" value="アカウントの削除" class="btn btn-delete"
-						onclick="location.href='${pageContext.request.contextPath}/views/user-delete.jsp'">
+						onclick="location.href='${pageContext.request.contextPath}/views/user_delete.jsp'">
 				</p>
 			</div>
 		</div>

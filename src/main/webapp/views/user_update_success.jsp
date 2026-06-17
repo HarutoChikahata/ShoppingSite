@@ -31,8 +31,8 @@
 		</div>
 
 
-		<input type="button" value="マイページに戻る"
-			onclick="location.href='${pageContext.request.contextPath}/views/user-menu.jsp'">
+		<input type="button" value="ホームに戻る"
+			onclick="location.href='${pageContext.request.contextPath}/views/home.jsp'">
 		</p>
 	</div>
 

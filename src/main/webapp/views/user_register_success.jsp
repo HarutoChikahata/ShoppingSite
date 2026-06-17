@@ -17,7 +17,7 @@
 		<p>会員登録が完了しました。</p>
 		<p>
 			<input type="button" value="ホームへ"
-				onclick="location.href='${pageContext.request.contextPath}/views/user-menu.jsp'">
+				onclick="location.href='${pageContext.request.contextPath}/views/home.jsp'">
 		</p>
 	</div>
 	<%@include file="footer.html"%>
